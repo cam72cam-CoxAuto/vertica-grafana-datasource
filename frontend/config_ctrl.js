@@ -36,6 +36,7 @@ export class VerticaConfigCtrl {
     constructor($scope) {
         this.current.jsonData.tlsmode = this.current.jsonData.tlsmode || 'none';
         this.current.jsonData.usePreparedStatements = this.current.jsonData.usePreparedStatements || true;
+        this.current.jsonData.useLoadBalancing = this.current.jsonData.useLoadBalancing || false;
     }
 }
 
