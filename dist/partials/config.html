@@ -50,6 +50,17 @@
 			<input type="checkbox" class="gf-form-input" ng-model='ctrl.current.jsonData.usePreparedStatements'></input>
 		</div>
 	</div>
+	<div class="gf-form-inline">
+		<div class="gf-form max-width-30">
+			<span class="gf-form-label width-15">Use Client Load Balancing
+				<info-popover mode="right-normal">
+					If set, the connection will ask the server to suggest the best node to which to connect.
+					If unset, connect only to the specified server.
+				</info-popover>
+			</span>
+			<input type="checkbox" class="gf-form-input" ng-model='ctrl.current.jsonData.useLoadBalancing'></input>
+		</div>
+	</div>
 </div>
 
 <div class="gf-form-group">

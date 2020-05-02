@@ -298,7 +298,19 @@ func (v *VerticaDatasource) Query(ctx context.Context, tsdbReq *datasource.Datas
 		response.Results[ct] = &datasource.QueryResult{}
 	}
 
-	connStr := fmt.Sprintf("vertica://%s:%s@%s/%s", cfg.User, password, tsdbReq.Datasource.Url, cfg.Database)
+	usePrepared := 0
+	if cfg.UsePreparedStmts {
+		usePrepared = 1
+	}
+
+	useLoadBalance := 0
+	if cfg.UseLoadBalancing {
+		useLoadBalance = 1
+	}
+
+	connStr := fmt.Sprintf("vertica://%s:%s@%s/%s?tlsmode=%s&use_prepared_statements=%d&connection_load_balance=%d",
+		cfg.User, password, tsdbReq.Datasource.Url,
+		cfg.Database, cfg.TLSMode, usePrepared, useLoadBalance)
 
 	connDB, err := sql.Open("vertica", connStr)
 
