@@ -47,18 +47,18 @@
 					If not set, query arguments will be interpolated into the query on the client side. If set, query arguments will be bound on the server.
 				</info-popover>
 			</span>
-			<input type="checkbox" class="gf-form-input" ng-model='ctrl.current.jsonData.usePreparedStatements'></input>
+			<input type="checkbox" class="gf-form-input" ng-model='ctrl.current.jsonData.usePreparedStatements'/>
 		</div>
 	</div>
 	<div class="gf-form-inline">
 		<div class="gf-form max-width-30">
 			<span class="gf-form-label width-15">Use Client Load Balancing
 				<info-popover mode="right-normal">
-					If set, the connection will ask the server to suggest the best node to which to connect.
+					If set, the database may redirect this connection to another node in order to distribute the workload.
 					If unset, connect only to the specified server.
 				</info-popover>
 			</span>
-			<input type="checkbox" class="gf-form-input" ng-model='ctrl.current.jsonData.useLoadBalancing'></input>
+			<input type="checkbox" class="gf-form-input" ng-model='ctrl.current.jsonData.useLoadBalancing'/>
 		</div>
 	</div>
 </div>
